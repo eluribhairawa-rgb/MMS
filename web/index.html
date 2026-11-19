@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#2457d6" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+  <link rel="icon" href="/icons/icon-192.png" />
+  <title>EnergyStacks</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <!-- Login screen -->
+  <section id="login" class="login hidden">
+    <form id="login-form" class="login-card">
+      <div class="logo"><img src="/icons/icon-192.png" alt="" /> <span id="login-company">EnergyStacks</span></div>
+      <p class="muted">Sign in with your username, phone or email</p>
+      <label>Username, phone or email<input name="login" autocomplete="username" autocapitalize="none" required /></label>
+      <label>Password<input name="password" type="password" autocomplete="current-password" required /></label>
+      <div class="err" id="login-err"></div>
+      <button class="btn primary block" type="submit">Sign in</button>
+    </form>
+  </section>
+
+  <!-- App shell -->
+  <div id="shell" class="shell hidden">
+    <aside class="side">
+      <div class="side-brand"><img src="/icons/icon-192.png" alt="" /><span id="company"></span></div>
+      <nav id="nav" class="nav"></nav>
+      <div class="side-me">
+        <div class="me-name" id="me-name"></div>
+        <div class="muted small" id="me-role"></div>
+        <button class="linkbtn" data-action="password">Change password</button>
+        <button class="linkbtn" data-action="logout">Sign out</button>
+      </div>
+    </aside>
+    <header class="topbar">
+      <div class="side-brand"><img src="/icons/icon-192.png" alt="" /><span id="company-m"></span></div>
+      <button class="iconbtn" id="btn-account" aria-label="Account">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+      </button>
+    </header>
+    <main id="main" class="main"></main>
+    <nav id="tabbar" class="tabbar"></nav>
+  </div>
+
+  <!-- Camera (live camera only — there is no upload option anywhere) -->
+  <section id="cam" class="cam hidden">
+    <video id="video" playsinline autoplay muted></video>
+    <canvas id="canvas" hidden></canvas>
+    <div class="cam-top">
+      <button class="iconbtn light" id="cam-close" aria-label="Close">✕</button>
+      <span id="cam-title"></span>
+      <button class="iconbtn light" id="cam-flip" aria-label="Switch camera">⟲</button>
+    </div>
+    <div class="cam-info" id="cam-info"></div>
+    <div class="cam-bottom"><button class="shutter" id="cam-shoot" aria-label="Take photo"></button></div>
+  </section>
+
+  <div id="sheet" class="sheet hidden"><div class="sheet-card" id="sheet-card"></div></div>
+  <div id="viewer" class="viewer hidden"><img id="viewer-img" alt="" /></div>
+  <div id="toast" class="toast hidden"></div>
+  <div id="busy" class="busy hidden"><div class="spin"></div><div id="busy-text">Saving…</div></div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
